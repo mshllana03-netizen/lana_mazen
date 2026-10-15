@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#f5ecdf">
+<title>Lana ♡ Mazen</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root{
+ --bg:#f5ecdf;--paper:#fffaf3;--ink:#46352c;--muted:#8b705d;
+ --gold:#b89a68;--gold2:#d7bd91;--brown:#60493a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg)}
+body{font-family:"Cormorant Garamond",Georgia,serif;color:var(--ink)}
+button{font:inherit;border:0;outline:0;-webkit-appearance:none}
+.page{position:absolute;inset:0;display:none;align-items:center;justify-content:center;overflow:hidden;background:
+ radial-gradient(circle at 18% 18%,#c4a87516,transparent 28%),
+ radial-gradient(circle at 83% 78%,#6e4e3b0e,transparent 30%),var(--bg)}
+.page.active{display:flex;animation:page .9s cubic-bezier(.2,.8,.2,1)}
+.page:before{content:"";position:absolute;inset:15px;border:1px solid #60493a26;pointer-events:none}
+.page:after{content:"";position:absolute;inset:23px;border:1px solid #b89a6814;pointer-events:none}
+.container{position:relative;z-index:4;width:min(91%,530px);text-align:center}
+.ornament{position:absolute;z-index:1;color:#b89a6830;font-size:34px;line-height:1;pointer-events:none}
+.o1{top:12%;left:10%;transform:rotate(-15deg)}
+.o2{bottom:15%;right:9%;transform:rotate(18deg);font-size:26px}
+@keyframes page{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+
+.eyebrow{font-size:13px;letter-spacing:4px;color:var(--muted);direction:ltr;margin-bottom:18px}
+.hero-title{font-size:clamp(36px,9vw,59px);line-height:1.02;font-weight:600;direction:ltr;margin:0}
+.hero-title .heart{font-family:Arial,sans-serif;font-size:.75em}
+.gold-rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:21px auto}
+.gold-rule:before,.gold-rule:after{content:"";height:1px;width:48px;background:linear-gradient(90deg,transparent,var(--gold))}
+.gold-rule:after{transform:rotate(180deg)}
+.diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.ready{font-size:clamp(28px,7vw,39px);direction:ltr}
+.question{height:30px;margin-top:27px;font-size:19px;color:var(--muted);direction:ltr;transition:.35s}
+.choice-area{height:155px;position:relative;margin-top:3px;direction:ltr}
+.choice{position:absolute;top:50%;height:53px;min-width:108px;padding:0 29px;border-radius:40px;font-size:19px;transition:transform .55s cubic-bezier(.2,.9,.2,1),opacity .55s,filter .55s}
+.yes{left:16%;transform:translateY(-50%);background:var(--brown);color:#fff;box-shadow:0 13px 30px #47352b25}
+.no{right:16%;transform:translateY(-50%);background:#fffaf2cc;color:var(--brown);border:1px solid #60493a2e}
+.choice:active{filter:brightness(.96)}
+
+.count-wrap{direction:ltr}
+.count{font-size:clamp(100px,27vw,155px);font-weight:500;color:var(--brown);animation:count .8s ease}
+@keyframes count{0%{opacity:0;transform:scale(.55);filter:blur(5px)}55%{opacity:1;transform:scale(1.1);filter:blur(0)}100%{transform:scale(1)}}
+
+/* Cake */
+.cake-stage{width:min(340px,90vw);height:395px;margin:auto;position:relative;display:flex;align-items:flex-end;justify-content:center;cursor:pointer}
+.cake-shadow{position:absolute;bottom:35px;width:295px;height:32px;border-radius:50%;background:#60493a18;filter:blur(8px)}
+.plate{position:absolute;bottom:35px;width:294px;height:25px;border-radius:50%;background:linear-gradient(#eadbc8,#d8c0a4);box-shadow:0 7px 12px #513a2c1d}
+.cake{position:absolute;bottom:58px;width:245px;height:210px}
+.layer{position:absolute;left:50%;transform:translateX(-50%) scaleY(0);transform-origin:bottom;opacity:0;border-radius:13px 13px 7px 7px;box-shadow:inset 0 -7px 0 #4b302425}
+.l1{bottom:0;width:245px;height:55px;background:linear-gradient(#9a694d,#81553f)}
+.l2{bottom:51px;width:225px;height:52px;background:linear-gradient(#dfb58e,#c99670)}
+.l3{bottom:99px;width:202px;height:48px;background:linear-gradient(#a97655,#8f5e46)}
+.layer.show{animation:layer .7s cubic-bezier(.18,.82,.18,1) forwards}
+@keyframes layer{0%{opacity:0;transform:translateX(-50%) scaleY(0)}35%{opacity:1}100%{opacity:1;transform:translateX(-50%) scaleY(1)}}
+.icing{position:absolute;bottom:137px;left:50%;width:211px;height:38px;transform:translateX(-50%) scaleY(0);transform-origin:bottom;opacity:0;background:#fff5e8;border-radius:19px 19px 11px 11px;box-shadow:0 3px 5px #60493a15}
+.icing.show{animation:layer .7s ease forwards}
+.icing:after{content:"";position:absolute;bottom:-8px;left:15px;width:14px;height:17px;border-radius:0 0 10px 10px;background:#fff5e8;box-shadow:36px 3px 0 #fff5e8,75px -1px 0 #fff5e8,116px 3px 0 #fff5e8,157px 0 0 #fff5e8}
+.candles{position:absolute;bottom:165px;left:50%;transform:translateX(-50%);display:flex;gap:28px;opacity:0}
+.candles.show{animation:candle .8s ease forwards}
+@keyframes candle{from{opacity:0;transform:translateX(-50%) translateY(14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.candle{width:14px;height:59px;border-radius:5px;background:repeating-linear-gradient(135deg,#f1d8b9 0 7px,#c9946f 7px 10px);position:relative}
+.flame{position:absolute;left:50%;top:-29px;width:18px;height:26px;transform:translateX(-50%);background:#e5a34a;border-radius:55% 45% 60% 40%;box-shadow:0 0 20px #e5a34a99;animation:flicker .65s ease-in-out infinite alternate}
+.flame:after{content:"";position:absolute;left:50%;top:7px;transform:translateX(-50%);width:7px;height:12px;border-radius:50%;background:#fff5cb}
+.flame.off{opacity:0;transform:translateX(-50%) scale(.08);transition:.35s}
+@keyframes flicker{from{transform:translateX(-50%) rotate(-3deg) scale(1)}to{transform:translateX(-50%) rotate(4deg) scale(1.1)}}
+.hbd{opacity:0;font-size:clamp(31px,8vw,47px);direction:ltr;margin-top:-2px}
+.hbd.show{animation:rise .9s ease forwards}
+.hint{opacity:0;font-family:"Noto Naskh Arabic",serif;font-size:18px;color:var(--muted);margin-top:3px}
+.hint.show{animation:rise .8s ease forwards}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.next{margin-top:24px;height:51px;min-width:137px;padding:0 31px;border-radius:30px;background:var(--brown);color:#fff;font-size:18px;box-shadow:0 12px 25px #46352b25;direction:ltr}
+.hidden{display:none!important}
+
+/* Special prescription */
+.rx-card{position:relative;width:min(91%,520px);max-height:84vh;overflow:auto;text-align:left;direction:ltr;padding:27px 25px 23px;background:#fffaf3e8;border:1px solid #60493a30;box-shadow:0 24px 58px #47352b18}
+.rx-card:before,.rx-card:after{content:"";position:absolute;width:27px;height:27px;border-color:var(--gold);opacity:.62}
+.rx-card:before{right:12px;top:12px;border-top:1px solid;border-right:1px solid}
+.rx-card:after{left:12px;bottom:12px;border-left:1px solid;border-bottom:1px solid}
+.rx-head{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.rx-mark{width:48px;height:48px;flex:0 0 48px;border:1px solid #b89a6870;border-radius:50%;display:grid;place-items:center;color:#8b705d;font:28px Georgia,serif}
+.rx-title{font-family:"Noto Naskh Arabic",serif;font-size:clamp(24px,6vw,30px);font-weight:600;color:#6d4c36;line-height:1.2}
+.rx-date{font-size:12px;letter-spacing:1.5px;color:#a18469;margin-top:4px}
+.rx-divider{height:1px;background:#d8c3a5;margin:13px 0}
+.rx-section-title{font-family:"Noto Naskh Arabic",serif;color:#76553d;font-weight:700;font-size:17px;margin:0 0 8px}
+.rx-list{list-style:none;padding:0;margin:0;font-family:"Noto Naskh Arabic",serif;color:#60493a;font-size:clamp(15px,3.8vw,18px);line-height:1.7;direction:rtl;text-align:right}
+.rx-list li{margin:3px 0}
+.rx-list li:before{content:"✧";color:#b89a68;margin-left:8px}
+.rx-copy{font-family:"Noto Naskh Arabic",serif;color:#60493a;font-size:clamp(14px,3.6vw,17px);line-height:1.65;direction:rtl;text-align:right;margin:0}
+.rx-warning{font-family:"Noto Naskh Arabic",serif;color:#76553d;font-size:clamp(14px,3.6vw,17px);line-height:1.65;direction:rtl;text-align:right;margin:0}
+.rx-sign{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px}
+.rx-sign-caption{font-size:11px;letter-spacing:.5px;color:#a18469;direction:ltr}
+.rx-signature{font-family:"Noto Naskh Arabic",serif;font-size:16px;color:#6d4c36;font-style:italic;margin-top:3px}
+.rx-stamp{width:47px;height:47px;flex:0 0 47px;border:1px solid #b89a6870;border-radius:50%;display:grid;place-items:center;color:#a18469;font-size:22px;transform:rotate(-12deg)}
+.rx-next{position:sticky;bottom:0;display:block;width:100%;min-height:54px;margin:16px auto 0;padding:0 18px;border:1px solid #b89a68;background:#60493a;color:#fffaf3;font-size:17px;font-weight:600;letter-spacing:.2px;box-shadow:0 10px 22px #46352c35;z-index:6;direction:ltr;white-space:normal}
+@media(max-height:700px){.rx-card{padding:22px 20px 18px;max-height:81vh}.rx-divider{margin:9px 0}.rx-head{margin-bottom:10px}.rx-list{line-height:1.5}.rx-sign{margin-top:9px}}
+
+/* message */
+.card{position:relative;padding:43px 25px 37px;background:#fffaf3d9;border:1px solid #60493a25;box-shadow:0 25px 60px #47352b17}
+.card:before,.card:after{content:"";position:absolute;width:31px;height:31px;border-color:var(--gold);opacity:.58}
+.card:before{right:13px;top:13px;border-top:1px solid;border-right:1px solid}
+.card:after{left:13px;bottom:13px;border-left:1px solid;border-bottom:1px solid}
+.card-label{font-size:16px;letter-spacing:3px;color:var(--muted);direction:ltr;margin-bottom:27px}
+.message{font-family:"Noto Naskh Arabic",serif;font-size:clamp(20px,5.3vw,27px);line-height:2.04;color:#49372d;opacity:0}
+.message.visible{animation:message 2.2s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes message{from{opacity:0;transform:translateY(17px)}to{opacity:1;transform:translateY(0)}}
+.goodbye{direction:ltr}
+.goodbye h2{margin:0;font-size:clamp(70px,19vw,105px);font-weight:500}
+.goodbye .rule{width:72px;height:1px;background:var(--gold);margin:24px auto}
+.goodbye p{font-size:24px;margin:0}
+.end-note{font-family:"Noto Naskh Arabic",serif;color:var(--muted);font-size:16px;margin-top:30px;opacity:.8}
+@media(max-width:360px){.page:before{inset:11px}.page:after{inset:17px}.card{padding:33px 18px 32px}.message{font-size:18px;line-height:1.9}.cake-stage{transform:scale(.86);margin:-23px auto}}
+@media(max-height:610px){.container{transform:scale(.81)}}
+
+/* Subtle pharmacy-inspired motion */
+.pharm-scene{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.pharm-pill{position:absolute;width:43px;height:17px;border:1px solid #b89a6870;border-radius:20px;background:linear-gradient(90deg,#fffaf3 0 49%,#b89a68 50% 100%);opacity:0;box-shadow:0 4px 12px #60493a10;animation:pillDrift 8s ease-in-out infinite}
+.pharm-pill:after{content:"";position:absolute;left:50%;top:1px;bottom:1px;width:1px;background:#8b705d60}
+.pharm-pill.p1{top:24%;left:8%;animation-delay:.2s}
+.pharm-pill.p2{top:68%;right:7%;animation-delay:1.8s;animation-duration:9s}
+.pharm-pill.p3{top:15%;right:13%;width:32px;height:13px;animation-delay:3s;animation-duration:10s}
+.rx-float{position:absolute;font-family:Georgia,serif;color:#b89a6860;font-size:29px;animation:rxBreathe 4.5s ease-in-out infinite}
+.rx-float.rx1{left:11%;bottom:23%}
+.rx-float.rx2{right:10%;top:23%;font-size:23px;animation-delay:1.3s}
+@keyframes pillDrift{0%{opacity:0;translate:0 15px;rotate:-18deg}18%{opacity:.65}50%{translate:8px -13px;rotate:12deg;opacity:.7}82%{opacity:.45}100%{opacity:0;translate:-5px -30px;rotate:28deg}}
+@keyframes rxBreathe{0%,100%{opacity:.35;transform:translateY(0) rotate(-5deg) scale(.96)}50%{opacity:.85;transform:translateY(-9px) rotate(5deg) scale(1.04)}}
+#p2 .pharm-pill{opacity:.48;animation-duration:7s}
+#p2 .rx-float{color:#b89a684d}
+@media(prefers-reduced-motion:reduce){.pharm-pill,.rx-float{animation:none;opacity:.35}}
+
+</style>
+</head>
+<body>
+
+<section class="page active" id="p1">
+<div class="pharm-scene" aria-hidden="true"><span class="pharm-pill p1"></span><span class="pharm-pill p2"></span><span class="pharm-pill p3"></span><span class="rx-float rx1">℞</span><span class="rx-float rx2">✚</span></div>
+<div class="ornament o1">✦</div><div class="ornament o2">✧</div>
+<div class="container">
+<div class="eyebrow">A LITTLE SURPRISE • JUST FOR YOU</div>
+<h1 class="hero-title">Hello from Lana<br>to Mazen <span class="heart">🤍</span></h1>
+<div class="gold-rule"><span class="diamond"></span></div>
+<div class="ready">Are you ready?</div>
+<div class="question" id="q">Choose carefully...</div>
+<div class="choice-area">
+<button class="choice yes" id="yes">Yes</button>
+<button class="choice no" id="no">No</button>
+</div>
+</div>
+</section>
+
+<section class="page" id="p2">
+<div class="pharm-scene" aria-hidden="true"><span class="pharm-pill p1"></span><span class="pharm-pill p2"></span><span class="pharm-pill p3"></span><span class="rx-float rx1">℞</span><span class="rx-float rx2">✚</span></div>
+<div class="ornament o1">✦</div><div class="ornament o2">✧</div>
+<div class="container">
+<div id="counter"><div class="count" id="count">3</div></div>
+<div id="surprise" class="hidden">
+<div class="cake-stage" id="cakeStage">
+<div class="cake-shadow"></div><div class="plate"></div>
+<div class="cake">
+<div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div><div class="icing"></div>
+<div class="candles" id="candles">
+<div class="candle"><div class="flame"></div></div>
+<div class="candle"><div class="flame"></div></div>
+<div class="candle"><div class="flame"></div></div>
+</div></div>
+</div>
+<div class="hbd" id="hbd">Happy Birthday 🎂</div>
+<div class="hint" id="hint">اضغط على الكيكة لإطفاء الشموع ✨</div>
+<button class="next hidden" id="cakeNext">Next</button>
+</div>
+</div>
+</section>
+
+<section class="page" id="p3">
+<div class="pharm-scene" aria-hidden="true"><span class="pharm-pill p1"></span><span class="pharm-pill p2"></span><span class="pharm-pill p3"></span><span class="rx-float rx1">℞</span><span class="rx-float rx2">✚</span></div>
+<div class="ornament o1">✦</div><div class="ornament o2">✧</div>
+<div class="container">
+<div class="card">
+<div class="card-label">A MESSAGE FOR YOU</div>
+<div class="message" id="msg">
+كُلّ عامٍ وأنت إلى الله أقرب، وفي حفظهِ ورعايتهِ أينما كنت.<br>
+بَارَك الله في عمرك وأسعد قلبك، وزادك علمًا وفهمًا لتصير أحلى وأكبر صيدلاني بالبلد وتوصل لِكُلّ شيء تتمناه.<br>
+جعل الله عامك الجديد بداية لكُلّ فرح وتوفيق، وعسى أن يملأ أيامك القادمة بالنور والسكينة والبشائر التي تُبهج روحك وتريح بالك. 🤍
+</div>
+<button class="next" id="msgNext">Next</button>
+</div>
+</div>
+</section>
+
+<section class="page" id="p4">
+<div class="pharm-scene" aria-hidden="true"><span class="pharm-pill p1"></span><span class="pharm-pill p2"></span><span class="pharm-pill p3"></span><span class="rx-float rx1">℞</span><span class="rx-float rx2">✚</span></div>
+<div class="ornament o1">✧</div><div class="ornament o2">♡</div>
+<div class="rx-card">
+<div class="rx-head"><div class="rx-mark">℞</div><div><div class="rx-title">وصفة خاصة</div><div class="rx-date">01 JANUARY 2027 · SPECIAL EDITION</div></div></div>
+<div class="rx-divider"></div>
+<div class="rx-section-title" style="text-align:right">الوصفة</div>
+<ul class="rx-list">
+<li>جرعة يومية من الفرح، حتى في الأيام العادية.</li>
+<li>ابتسامة كل صباح، قبل ما يبدأ يومك.</li>
+<li>قليل من الراحة، وكثير من الأشياء اللي بتخلّي قلبك مطمئن.</li>
+</ul>
+<div class="rx-divider"></div>
+<div class="rx-section-title" style="text-align:right">طريقة الاستخدام</div>
+<p class="rx-copy">تُؤخذ هذه الوصفة على مهل، وتُجدَّد كلما احتجت تذكيرًا بأنك تستحق أيامًا جميلة.</p>
+<div class="rx-divider"></div>
+<div class="rx-section-title" style="text-align:right">تحذيرات المبرمجة لانا</div>
+<p class="rx-warning">هذا الإصدار صُنع خصيصًا لمازن، ولا توجد منه نسخ أخرى. 🤍</p>
+<div class="rx-sign"><div><div class="rx-sign-caption">Prepared with love &amp; a little code</div><div class="rx-signature">From Lana, your programmer ♡</div></div><div class="rx-stamp">✚</div></div>
+<button class="next rx-next" id="rxNext">Next&nbsp; →</button>
+</div>
+</section>
+
+<section class="page" id="p5">
+<div class="pharm-scene" aria-hidden="true"><span class="pharm-pill p1"></span><span class="pharm-pill p2"></span><span class="pharm-pill p3"></span><span class="rx-float rx1">℞</span><span class="rx-float rx2">✚</span></div>
+<div class="ornament o1">♡</div><div class="ornament o2">♡</div>
+<div class="container">
+<div class="goodbye">
+<h2>Bye 🤍</h2><div class="rule"></div><p>Thanks for being here.</p>
+<div class="end-note">— from Lana</div>
+</div>
+</div>
+</section>
+
+<script>
+const P={a:document.getElementById("p1"),b:document.getElementById("p2"),c:document.getElementById("p3"),d:document.getElementById("p4"),e:document.getElementById("p5")};
+function go(x){Object.values(P).forEach(e=>e.classList.remove("active"));x.classList.add("active")}
+
+const no=document.getElementById("no"),yes=document.getElementById("yes"),q=document.getElementById("q");
+const texts=["Answer honestly 👀","Are you sure?","Try again 😌","You really chose No?","Think about it... 👀","That button is getting suspicious.","Mazen... really? 😂","One more time?","I don't think that's the right answer 🤍","Okay... we both know the answer."];
+let tries=0;
+no.onclick=()=>{
+ tries++;
+ q.style.opacity=0;
+ setTimeout(()=>{q.textContent=texts[Math.min(tries-1,texts.length-1)];q.style.opacity=1},170);
+ yes.style.transform=`translateY(-50%) scale(${Math.min(1+tries*.38,3)})`;
+ no.style.transform=`translateY(-50%) scale(${Math.max(1-tries*.16,.045)})`;
+ no.style.opacity=Math.max(1-tries*.13,.045);
+ if(tries>=7)no.style.pointerEvents="none";
+};
+
+let AC=null;
+function ac(){if(!AC){let A=window.AudioContext||window.webkitAudioContext;if(A)AC=new A()}if(AC&&AC.state==="suspended")AC.resume();return AC}
+function sound(f,d,v,t="sine"){let c=ac();if(!c)return;let o=c.createOscillator(),g=c.createGain();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(.0001,c.currentTime);g.gain.exponentialRampToValueAtTime(v,c.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d+.02)}
+function pop(){sound(300,.16,.14);setTimeout(()=>sound(650,.11,.07),45)}
+function fanfare(){[523.25,659.25,783.99,1046.5].forEach((f,i)=>setTimeout(()=>sound(f,.38,.12),i*125))}
+function clap(){for(let i=0;i<25;i++)setTimeout(()=>sound(650+Math.random()*1100,.04,.022,"square"),Math.random()*1900)}
+
+let begun=false;
+yes.onclick=()=>{
+ startCake();
+};
+
+function startCake(){
+ go(P.b);if(begun)return;begun=true;
+ let n=3,c=document.getElementById("count");
+ c.textContent="3";
+ let t=setInterval(()=>{
+  n--;
+  if(n>0){c.style.animation="none";void c.offsetWidth;c.style.animation="count .8s ease";c.textContent=n}
+  else{clearInterval(t);document.getElementById("counter").classList.add("hidden");go(P.d)}
+ },1000);
+}
+
+function build(){
+ let els=document.querySelectorAll(".layer,.icing");
+ els.forEach((el,i)=>setTimeout(()=>{el.classList.add("show");pop()},i*620));
+ setTimeout(()=>{document.getElementById("candles").classList.add("show");pop()},2700);
+ setTimeout(()=>{document.getElementById("hbd").classList.add("show");fanfare()},3400);
+ setTimeout(()=>document.getElementById("hint").classList.add("show"),4000);
+}
+let blown=false;
+document.getElementById("cakeStage").onclick=()=>{
+ if(blown)return;blown=true;ac();
+ document.querySelectorAll(".flame").forEach((f,i)=>setTimeout(()=>f.classList.add("off"),i*90));
+ document.getElementById("hint").textContent="يا سلام 🤍 كل عام وأنت بخير!";
+ setTimeout(()=>{clap();fanfare()},400);
+ setTimeout(()=>document.getElementById("cakeNext").classList.remove("hidden"),1700);
+};
+document.getElementById("cakeNext").onclick=()=>{
+ go(P.c);setTimeout(()=>document.getElementById("msg").classList.add("visible"),220);
+};
+document.getElementById("msgNext").onclick=()=>go(P.e);
+document.getElementById("rxNext").onclick=()=>{go(P.b);document.getElementById("surprise").classList.remove("hidden");build()};
+document.addEventListener("touchstart",()=>ac(),{once:true});
+document.addEventListener("touchmove",e=>e.preventDefault(),{passive:false});
+</script>
+</body>
+</html>
