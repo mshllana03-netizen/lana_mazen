@@ -277,7 +277,7 @@ let blown=false;
 document.getElementById("cakeStage").onclick=()=>{
  if(blown)return;blown=true;ac();
  document.querySelectorAll(".flame").forEach((f,i)=>setTimeout(()=>f.classList.add("off"),i*90));
- document.getElementById("hint").textContent="يا سلام 🤍 كل عام وأنت بخير!";
+ document.getElementById("hint").textContent="يا سلام 🤍!";
  setTimeout(()=>{clap();fanfare()},400);
  setTimeout(()=>document.getElementById("cakeNext").classList.remove("hidden"),1700);
 };
